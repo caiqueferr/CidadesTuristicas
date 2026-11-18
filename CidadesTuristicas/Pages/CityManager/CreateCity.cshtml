@@ -1,0 +1,27 @@
+﻿@page
+@model CidadesTuristicas.Pages.CityManager.CreateCityModel
+@{
+    
+    <div>
+    <h1>Nome da cidade</h1>
+        <form method="POST">
+            <label for="nome">Nome da cidade:</label>
+            <input 
+            asp-for="Input.CityName" 
+            type="text" 
+            placeholder="Nome da cidade" >
+
+            <span asp-validation-for="Input.CityName"></span>
+
+            <button type="submit">Enviar</button>
+        </form>
+        @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+    
+        @if (!string.IsNullOrEmpty(Model.CidadeRecebida))
+        {
+            <p>Cidade cadastrada: @Model.CidadeRecebida</p>
+        }
+    </div>
+}

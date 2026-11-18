@@ -1,0 +1,47 @@
+﻿@page
+@model CidadesTuristicas.Pages.CityManager.CreateCountryModel
+@{
+}
+<div>
+    <h1>Paises</h1>
+    <form method="POST">
+        
+        @for (int i = 0; i < 5; i++)
+        {
+            
+                <label>Nome do país:</label>
+                <input asp-for="Paises[i].CountryName" 
+                       type="text"
+                       placeholder="Nome do país">
+                                       
+                <span asp-validation-for="Paises[i].CountryName"></span>
+
+
+                <label>Código do país:</label>
+                <input asp-for="Paises[i].CountryCode"
+                       type="text"
+                       placeholder="Código do país">
+
+                <span asp-validation-for="Paises[i].CountryCode"></span>
+            <br />
+        }
+        <br />
+        <button type="submit">Enviar</button>
+    </form>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    @if (Model.Paises.Any(p => !string.IsNullOrWhiteSpace(p.CountryName)))
+    {
+        <h2>Paises Cadastrados:</h2>
+        <ul>
+            @foreach (var pais in Model.Paises)
+            {
+                <li>-@pais.CountryName - @pais.CountryCode</li>
+            }
+            
+        </ul>
+        
+    }
+</div>

@@ -1,0 +1,13 @@
+﻿@page "{cityName}"
+@model CidadesTuristicas.Pages.CityManager.CityDetailsModel
+@{
+}
+<div>
+    <h1>Detalhes de @Model.CidadeRecebida</h1>
+    <ul>
+        @foreach (string cidade in Model.Cities)
+        {
+            <li> <a asp-page="/CityManager/CityDetails" asp-route-cityName="@cidade">@cidade</a> </li>
+        }
+    </ul>
+</div>

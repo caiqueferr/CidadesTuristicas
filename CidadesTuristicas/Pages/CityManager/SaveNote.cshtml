@@ -1,0 +1,18 @@
+﻿@page
+@model CidadesTuristicas.Pages.CityManager.SaveNoteModel
+@{
+}
+
+<div>
+    <form method="POST">
+        <textarea asp-for="Input.Content"></textarea>
+        <button>Salvar</button>
+    </form>
+    @if (!string.IsNullOrEmpty(Model.ArquivoSalvo))
+{
+    <p>Texto salvo com sucesso!</p>
+
+    <a href="@Model.ArquivoSalvo" download>Baixar nota</a>
+}
+    
+</div>
